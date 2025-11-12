@@ -7,7 +7,7 @@ beforeEach(() => {
 
 test('should allow duplicate course title', () => {
   const result = storage.create('courses', { title: 'Math', teacher: 'Someone' });
-  expect(result.title).toBe('Math');
+  expect(result.error).toBe('Course title must be unique');
 });
 
 test('should list seeded students', () => {
@@ -42,5 +42,5 @@ test('should allow more than 3 students in a course', () => {
   storage.enroll(students[1].id, course.id);
   storage.enroll(students[2].id, course.id);
   const result = storage.enroll(4, course.id);
-  expect(result.success).toBe(true);
+  expect(result.error).toBe('Course is full');
 });
