@@ -51,5 +51,6 @@ npm run dev
 - Formatage : `npm run format`
 
 ---
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6fe3dee04f644fe9a61660cdc3175796)](https://app.codacy.com/gh/Babajii91/test_qualit-_projet/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 **À vous de jouer pour améliorer la qualité et la fiabilité du projet !**
