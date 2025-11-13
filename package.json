@@ -8,6 +8,7 @@
     "dev": "nodemon src/app.js",
     "test": "jest --runInBand",
     "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write ."
   },
   "author": "EL AMRANI Amine",
