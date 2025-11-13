@@ -92,14 +92,13 @@ describe('Student-Course API integration', () => {
   test('POST /courses should fail if title or teacher is missing', async () => {
     const res = await request(app)
       .post('/courses')
-      .send({ teacher: 'Anonyme' }); 
+      .send({ teacher: 'Anonyme' });
 
     expect(res.statusCode).toBe(400);
     expect(res.body).toHaveProperty('error', 'title and teacher required');
   });
 
   test('DELETE /courses/:id should delete an existing course', async () => {
-
     const createRes = await request(app)
       .post('/courses')
       .send({ title: 'Temporaire', teacher: 'Prof X' });
@@ -120,7 +119,6 @@ describe('Student-Course API integration', () => {
   });
 
   test('DELETE /courses/:id should fail if course has enrolled students', async () => {
-
     const courseRes = await request(app)
       .post('/courses')
       .send({ title: 'Bloqué', teacher: 'Prof Y' });
@@ -140,7 +138,6 @@ describe('Student-Course API integration', () => {
   });
 
   test('PUT /courses/:id should update course title and teacher', async () => {
-
     const createRes = await request(app)
       .post('/courses')
       .send({ title: 'Ancien Titre', teacher: 'Prof A' });
@@ -166,7 +163,6 @@ describe('Student-Course API integration', () => {
   });
 
   test('PUT /courses/:id should fail if title is already used by another course', async () => {
-
     const courseA = await request(app)
       .post('/courses')
       .send({ title: 'Titre Unique', teacher: 'Prof A' });
@@ -175,7 +171,7 @@ describe('Student-Course API integration', () => {
       .post('/courses')
       .send({ title: 'Autre Titre', teacher: 'Prof B' });
 
-      const res = await request(app)
+    const res = await request(app)
       .put(`/courses/${courseB.body.id}`)
       .send({ title: 'Titre Unique' });
 
@@ -190,7 +186,6 @@ describe('Student-Course API integration', () => {
   });
 
   test('DELETE /students/:id should fail if student cannot be removed', async () => {
-
     const courseRes = await request(app)
       .post('/courses')
       .send({ title: 'Math', teacher: 'Professeur X' });
